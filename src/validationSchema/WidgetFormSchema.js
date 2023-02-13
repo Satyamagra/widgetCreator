@@ -21,8 +21,14 @@ export const WidgetFormSchema = Yup.object().shape({
   footerTextColor: Yup.string()
     .required(TextTemplate.errorMsg.footerTextColorRequired),
   width: Yup.number()
+    .positive(TextTemplate.errorMsg.onlyPositiveValue)
+    .lessThan(1000, TextTemplate.errorMsg.onlyLessThan)
+    .moreThan(200, TextTemplate.errorMsg.onlyMoreThan)
     .required(TextTemplate.errorMsg.widthRequired),
   height: Yup.number()
+    .positive(TextTemplate.errorMsg.onlyPositiveValue)
+    .lessThan(1000, TextTemplate.errorMsg.onlyLessThan)
+    .moreThan(200, TextTemplate.errorMsg.onlyMoreThan)
     .required(TextTemplate.errorMsg.heightRequired),
 
 })
