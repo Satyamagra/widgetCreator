@@ -24,7 +24,6 @@ function WidgetForm(props) {
       width: "",
       height: ""
     },
-
     // form Validation schema
     validationSchema: WidgetFormSchema,
     onSubmit: (values) => {
@@ -146,7 +145,7 @@ function WidgetForm(props) {
                 <div class='row'>
                 ${Object.entries(stateValue.districtData)
               .map(([item, stateValue]) =>
-                `<div class='col-4 col-s-12'>
+                `<div class='col-4 col-s-12' style='{width: 50%;'>
                   <div class='aside1'>
                     <div style='text-align:center;'>
                       <h2>${item}</h2>
@@ -226,7 +225,7 @@ function WidgetForm(props) {
   const { errors, touched, handleSubmit, getFieldProps } = formik;
 
   return (
-    <Card  >
+    <Card elevation={6} sx={{ marginTop: 10 }} >
       <CardContent>
         {/* <input value={data}></input> */}
         <FormikProvider value={formik} >
@@ -358,7 +357,7 @@ function WidgetForm(props) {
                 />
               </Grid>
               <Grid item md={6} lg={6} sm={12} xs={12}>
-                <Button fullWidth variant="contained" onClick={handleSubmit}>
+                <Button fullWidth variant="contained" onClick={handleSubmit} disabled={!formik.isValid}>
                   Get your widget
                 </Button>
               </Grid>
